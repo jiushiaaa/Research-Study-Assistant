@@ -1,0 +1,295 @@
+.route-optimizer {
+  width: 100%;
+}
+
+.route-optimizer .ant-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.route-optimizer .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+.route-optimizer .ant-card-head-title {
+  color: white;
+  font-weight: 600;
+}
+
+.route-optimizer .ant-card-extra {
+  color: white;
+}
+
+.route-optimizer .ant-card-extra .ant-radio-group {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.route-optimizer .ant-card-extra .ant-radio-button-wrapper {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 12px;
+}
+
+.route-optimizer .ant-card-extra .ant-radio-button-wrapper-checked {
+  background: white;
+  color: #667eea;
+  border-color: white;
+  font-weight: 500;
+}
+
+.route-optimizer .ant-card-extra .ant-btn-primary {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-weight: 500;
+}
+
+.route-optimizer .ant-card-extra .ant-btn-primary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 路线选项卡片 */
+.route-option {
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.route-option:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+}
+
+.route-option.selected {
+  border-color: #1890ff;
+  background-color: #f6ffff;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+}
+
+.route-option .ant-radio-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.route-option .ant-radio {
+  margin-top: 4px;
+}
+
+.route-option .ant-radio + span {
+  flex: 1;
+  width: calc(100% - 20px);
+}
+
+/* 统计数据样式 */
+.route-option .ant-statistic {
+  text-align: center;
+}
+
+.route-option .ant-statistic-title {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 2px;
+}
+
+.route-option .ant-statistic-content {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 标签样式 */
+.route-option .ant-tag {
+  margin: 2px;
+  border-radius: 4px;
+  font-size: 11px;
+  padding: 2px 6px;
+  line-height: 1.2;
+}
+
+/* 徽章样式 */
+.route-option .ant-badge {
+  margin-left: 8px;
+}
+
+.route-option .ant-badge-count {
+  font-size: 10px;
+  height: 16px;
+  line-height: 16px;
+  min-width: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+}
+
+/* 时间线样式 */
+.route-optimizer .ant-timeline {
+  margin-top: 16px;
+}
+
+.route-optimizer .ant-timeline-item {
+  padding-bottom: 16px;
+}
+
+.route-optimizer .ant-timeline-item-head {
+  background-color: #fff;
+  border-width: 2px;
+}
+
+.route-optimizer .ant-timeline-item-content {
+  margin-left: 24px;
+  padding-left: 12px;
+}
+
+.route-optimizer .ant-timeline-item ul {
+  margin-top: 8px;
+  color: #666;
+}
+
+.route-optimizer .ant-timeline-item li {
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* 加载状态 */
+.route-optimizer .ant-spin-container {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.route-optimizer .ant-spin-lg .ant-spin-dot {
+  font-size: 32px;
+}
+
+/* 空状态 */
+.route-optimizer .empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.route-optimizer .empty-state .anticon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #d9d9d9;
+}
+
+/* 提示信息 */
+.route-optimizer .ant-alert {
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.route-optimizer .ant-alert-success {
+  background-color: #f6ffed;
+  border-left: 4px solid #52c41a;
+}
+
+.route-optimizer .ant-alert-error {
+  background-color: #fff2f0;
+  border-left: 4px solid #ff4d4f;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .route-optimizer .ant-card-extra {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .route-optimizer .ant-card-extra .ant-radio-group {
+    width: 100%;
+  }
+  
+  .route-optimizer .ant-card-extra .ant-btn {
+    width: 100%;
+  }
+  
+  .route-option .ant-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .route-option .ant-statistic {
+    text-align: left;
+  }
+}
+
+/* 动画效果 */
+.route-option {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.route-optimizer .ant-radio-group-outline .ant-radio-button-wrapper {
+  transition: all 0.3s ease;
+}
+
+.route-optimizer .ant-radio-group-outline .ant-radio-button-wrapper:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 路线详情卡片 */
+.route-optimizer .route-details-card {
+  margin-top: 16px;
+  border: 1px solid #e8f4ff;
+  background: linear-gradient(135deg, #e8f4ff 0%, #f6ffff 100%);
+}
+
+.route-optimizer .route-details-card .ant-card-head {
+  background: transparent;
+  color: #1890ff;
+  border-bottom: 1px solid #e8f4ff;
+}
+
+.route-optimizer .route-details-card .ant-card-head-title {
+  color: #1890ff;
+  font-weight: 600;
+}
+
+/* 优化标记 */
+.route-optimizer .optimization-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border-radius: 12px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+}
+
+.route-optimizer .fastest-route .optimization-badge {
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+}
+
+.route-optimizer .shortest-route .optimization-badge {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.route-optimizer .scenic-route .optimization-badge {
+  background: linear-gradient(45deg, #f093fb, #f5576c);
+} 

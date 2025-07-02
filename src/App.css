@@ -1,0 +1,694 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar {
+  background-color: #001529;
+  padding: 0 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 64px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  padding: 0 15px;
+  height: 64px;
+  line-height: 64px;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  color: white;
+}
+
+.menu-item.active {
+  color: white;
+  border-bottom: 2px solid #1890ff;
+}
+
+.page-container {
+  margin: 24px 0;
+  padding: 24px;
+  background: white;
+  border-radius: 2px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.tabs {
+  margin-bottom: 20px;
+}
+
+.tab {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.tab.active {
+  background-color: #1890ff;
+  color: white;
+  border-color: #1890ff;
+}
+
+/* 景点卡片优化样式 */
+.landmark-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.landmark-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.landmark-card .ant-card-cover {
+  overflow: hidden;
+  position: relative;
+}
+
+.landmark-card .ant-card-cover .location-image-display {
+  transition: transform 0.3s ease;
+}
+
+.landmark-card:hover .ant-card-cover .location-image-display {
+  transform: scale(1.02);
+}
+
+/* 选中状态的景点卡片 */
+.landmark-card.selected {
+  border-color: #1890ff !important;
+  box-shadow: 0 4px 16px rgba(24, 144, 255, 0.2) !important;
+}
+
+.landmark-card.selected::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(24, 144, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 原有的卡片样式保持兼容 */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  color: rgba(0, 0, 0, 0.65);
+  margin-bottom: 16px;
+}
+
+.card-footer {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 16px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  margin-right: 8px;
+  font-size: 12px;
+  border-radius: 2px;
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #91d5ff;
+}
+
+.button {
+  display: inline-block;
+  padding: 0 15px;
+  height: 32px;
+  line-height: 32px;
+  background-color: #1890ff;
+  border: 1px solid #1890ff;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 24px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.login-form-item {
+  margin-bottom: 24px;
+}
+
+.login-input {
+  width: 100%;
+  height: 40px;
+  padding: 4px 11px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.login-button {
+  width: 100%;
+}
+
+.login-links {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.login-links a {
+  color: #1890ff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+/* 教师输入页面样式 */
+.prompt-card {
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.prompt-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.example-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.example-item:last-child {
+  border-bottom: none;
+}
+
+.submitted-prompt-card {
+  margin-bottom: 20px;
+  border-left: 3px solid #1890ff;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.highlight-text {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+.info-paragraph {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 路线地图页面样式 */
+.map-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  margin-bottom: 20px;
+}
+
+.highlight-item {
+  background-color: rgba(24, 144, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.timeline-container {
+  margin-top: 20px;
+  padding: 16px;
+}
+
+.ant-timeline-item-content {
+  padding-bottom: 20px;
+}
+
+/* Modal 中的图片展示优化 */
+.modal-image-display {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-image-display:hover {
+  transform: none; /* Modal中禁用hover transform */
+}
+
+/* 景点图片特殊样式 */
+.landmark-image {
+  border-radius: 0; /* 卡片封面图片不需要圆角 */
+}
+
+.landmark-image:hover {
+  transform: none; /* 卡片中的图片hover效果由父容器控制 */
+}
+
+/* 工作流步骤中的景点卡片 */
+.workflow-step-card .landmark-card {
+  height: 100%;
+  border-radius: 12px;
+}
+
+.workflow-step-card .landmark-card .ant-card-body {
+  padding: 0;
+}
+
+/* 优化图片展示的响应式设计 */
+@media (max-width: 768px) {
+  .landmark-card:hover {
+    transform: none; /* 移动端禁用hover动画 */
+  }
+  
+  .card-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .page-container {
+    padding: 16px;
+    margin: 16px 0;
+  }
+  
+  .modal-image-display {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .landmark-card {
+    margin-bottom: 16px;
+  }
+  
+  .landmark-card .ant-card-cover {
+    height: 180px; /* 移动端减小图片高度 */
+  }
+  
+  .location-image-display {
+    border-radius: 6px;
+  }
+}
+
+/* 预览和加载状态优化 */
+.ant-image-preview-mask {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.ant-image-preview-mask:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* 轮播图样式优化 */
+.ant-carousel .slick-dots {
+  display: flex !important;
+  justify-content: center;
+}
+
+.ant-carousel .slick-dots li {
+  margin: 0 4px;
+}
+
+.ant-carousel .slick-dots li button {
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background: #1890ff;
+}
+
+/* 图片数量徽章优化 */
+.ant-badge-count {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 错误处理和加载状态 */
+.ant-spin-container {
+  transition: opacity 0.3s ease;
+}
+
+.ant-spin-blur {
+  opacity: 0.7;
+}
+
+/* 高质量图片显示 */
+.ant-image img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+@media (min-resolution: 2dppx) {
+  .ant-image img {
+    image-rendering: auto;
+  }
+}
+
+/* 其他现有样式保持不变 */
+.preview-content {
+  padding: 20px;
+}
+
+.preview-section {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #fafafa;
+  border-radius: 4px;
+}
+
+.preview-section h3 {
+  margin-top: 0;
+  color: #1890ff;
+}
+
+.preview-landmark {
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 3px solid #1890ff;
+}
+
+.preview-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.preview-topic {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px;
+  background-color: #f5f7f9;
+  border-radius: 4px;
+}
+
+.preview-questions {
+  background-color: #f9f9f9;
+  padding: 12px 16px;
+  border-radius: 4px;
+}
+
+.preview-notes {
+  background-color: #fffbe6;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-left: 3px solid #faad14;
+}
+
+/* 文档生成进度条样式 */
+.generating-progress {
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* 文档模板选择样式 */
+.template-option {
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.template-option:hover {
+  border-color: #40a9ff;
+  box-shadow: 0 0 4px rgba(24, 144, 255, 0.2);
+}
+
+.template-option.selected {
+  border-color: #1890ff;
+  background-color: rgba(24, 144, 255, 0.05);
+}
+
+/* 笔记内容与文档下载响应式布局 */
+@media (max-width: 768px) {
+  .grade-selector {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .download-options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .download-options .ant-btn {
+    margin-bottom: 12px;
+    margin-left: 0 !important;
+  }
+
+  .preview-topics {
+    flex-direction: column;
+  }
+}
+
+/* 路线优化器容器样式 */
+.route-optimizer-container {
+  margin-top: 16px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 路线规划页面特定样式 */
+.route-plans-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 24px;
+}
+
+.route-plans-page .route-tabs {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.route-plans-page .route-tabs .ant-tabs-tab {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  margin-right: 2px;
+}
+
+.route-plans-page .route-tabs .ant-tabs-tab-active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.route-plans-page .route-tabs .ant-tabs-tab:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* 智能路线规划按钮样式 */
+.route-plans-page .ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+}
+
+.route-plans-page .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* 高亮项目样式 */
+.route-plans-page .highlight-item {
+  background-color: #f6ffff;
+  border-left: 4px solid #1890ff;
+  border-radius: 6px;
+}
+
+.route-plans-page .highlight-item:hover {
+  background-color: #e6fffb;
+}
+
+/* 地图卡片样式 */
+.route-plans-page .map-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.route-plans-page .map-card .ant-card-body {
+  padding: 0;
+}
+
+/* 时间线容器样式 */
+.route-plans-page .timeline-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 16px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 8px;
+}
+
+.route-plans-page .timeline-container .ant-timeline-item {
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.route-plans-page .timeline-container .ant-timeline-item:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(4px);
+}
+
+/* 提示信息样式 */
+.route-plans-page .info-paragraph {
+  background: linear-gradient(135deg, #e8f4ff 0%, #f6ffff 100%);
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #1890ff;
+  margin-bottom: 24px;
+}
+
+/* 标签组样式 */
+.route-plans-page .ant-tag {
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 11px;
+  margin: 2px;
+}
+
+/* 卡片通用样式 */
+.route-plans-page .prompt-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.route-plans-page .prompt-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.route-plans-page .prompt-card .ant-card-head {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 8px 8px 0 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .route-plans-page {
+    padding: 16px;
+  }
+  
+  .route-plans-page .route-optimizer-container {
+    margin: 16px 0;
+  }
+  
+  .route-plans-page .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  .route-plans-page .timeline-container {
+    max-height: 300px;
+  }
+}
+
+/* 优化方案应用提示 */
+.route-plans-page .optimization-applied {
+  background: linear-gradient(135deg, #f6ffed 0%, #d9f7be 100%);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #b7eb8f;
+  font-size: 12px;
+  color: #389e0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
