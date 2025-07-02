@@ -361,18 +361,5 @@ CMD ["node", "server.js"]
 3. 提交代码
 4. 发起Pull Request
 
-## 📞 联系方式
-
-如有问题或建议，请通过以下方式联系：
-
-- 项目地址: [GitHub Repository]
-- 问题反馈: [GitHub Issues]
-- 邮箱: [contact@example.com]
-
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
-
----
 
 **小道新茂研学创作助手** - 让文化旅游更智能，让研学创作更简单！🎉 
